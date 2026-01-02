@@ -16,10 +16,22 @@ st.markdown("""
         font-size: 16px;
     }
     .skill-card {
-        background-color: #1f2937;
+        background-color: #262730; /* 濃いグレー */
         padding: 20px;
-        border-radius: 10px;
-        border-left: 5px solid #3b82f6;
+        border-radius: 12px;
+        border: 1px solid #4B4B4B; /* 枠線を薄く見えるように追加 */
+        border-left: 6px solid #3b82f6; /* アクセントカラー */
+        margin-bottom: 10px;
+        min-height: 180px;
+    }
+    .skill-card h4 {
+        color: #3b82f6;
+        margin-top: 0;
+    }
+    .skill-card p {
+        color: #ffffff; /* 文字色を白に固定 */
+        font-size: 14px;
+        line-height: 1.6;
     }
     </style>
 """, unsafe_allow_html=True)
@@ -91,18 +103,38 @@ with tab1:
             st.metric(label="年収イメージ", value="600万〜", delta="Top 10%")
             st.metric(label="顧客満足度", value="98%", delta="High")
 
-# --- TAB 2: 習得スキル体系 ---
+# --- TAB 2: 習得スキル体系（表示部分） ---
 with tab2:
     st.markdown("### 🏆 弊社で手に入る「一生モノ」のスキル")
     
+    # スキルマップの概念図
+    
     
     s_col1, s_col2, s_col3 = st.columns(3)
+    
     with s_col1:
-        st.markdown('<div class="skill-card"><b>🏛️ 法務・鑑定</b><br>建築基準法や都市計画法を読み解き、土地の真の価値を鑑定する力。</div>', unsafe_allow_html=True)
+        st.markdown('''
+            <div class="skill-card">
+                <h4>🏛️ 法務・鑑定</h4>
+                <p>建築基準法や都市計画法を読み解き、土地の真の価値を鑑定する力。地図からリスクを予見するプロの眼を養います。</p>
+            </div>
+        ''', unsafe_allow_html=True)
+        
     with s_col2:
-        st.markdown('<div class="skill-card"><b>💰 金融・税務</b><br>住宅ローン控除や相続税対策など、FP級の資産設計アドバイス力。</div>', unsafe_allow_html=True)
+        st.markdown('''
+            <div class="skill-card">
+                <h4>💰 金融・税務</h4>
+                <p>住宅ローン控除や相続税対策など、FP級の資産設計アドバイス力。単なる「紹介」ではなく「提案」ができる専門家へ。</p>
+            </div>
+        ''', unsafe_allow_html=True)
+        
     with s_col3:
-        st.markdown('<div class="skill-card"><b>交渉心理学</b><br>Win-Winの合意点を見極める、一生モノのコミュニケーション能力。</div>', unsafe_allow_html=True)
+        st.markdown('''
+            <div class="skill-card">
+                <h4>🤝 交渉心理学</h4>
+                <p>Win-Winの合意点を見極める、一生モノのコミュニケーション能力。言葉の裏にある顧客の真意を汲み取る技術です。</p>
+            </div>
+        ''', unsafe_allow_html=True)
 
 # --- TAB 3: エントリー ---
 with tab3:
@@ -119,4 +151,5 @@ with tab3:
             st.success(f"{name}さん、エントリーありがとうございます。後ほど担当者よりご連絡いたします。")
 
 st.divider()
+
 st.caption("© 2024 Your Professional Real Estate Team. すべての教育工程を言語化し、あなたの挑戦を支えます。")
